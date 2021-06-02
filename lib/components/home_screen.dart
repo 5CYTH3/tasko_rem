@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
 	AppBar buildAppBar() {
 		return AppBar(
 			elevation: 0,
-			leading: Icon(Icons.settings_outlined),
+			leading: IconButton(icon: Icon(Icons.settings_outlined), onPressed: () {}),
 			title: Text('Flut Tasko'),
 
 		);
