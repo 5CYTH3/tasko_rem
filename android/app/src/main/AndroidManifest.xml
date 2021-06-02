@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tasko_rem">
    <application
-        android:label="tasko_rem"
+        android:label="Tasko"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
