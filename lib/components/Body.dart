@@ -8,12 +8,22 @@ class Body extends StatelessWidget {
 			children: <Widget>[
 				Container(
 					height: size.height * 0.2,
-					color: Colors.black,
-					child: Center(
-						child: Text("Je suis un élément enfant", style: TextStyle(color: Colors.white))
-					)
-				)
+					child: Stack(
+						children: <Widget>[
+							Container(
+							decoration: BoxDecoration(
+								color: Colors.black,
+									borderRadius: BorderRadius.only(
+										bottomLeft: Radius.circular(60), 
+										bottomRight: Radius.circular(60),
+									)
+								)
+							)
+						]
+					),
+				),
 			],
 		);
 	}
 }
+
