@@ -42,6 +42,21 @@ class Body extends StatelessWidget {
 						]
 					),
 				),
+        Column(
+          children: [
+            Container(
+              height: 200.0,
+              width: 200.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                boxShadow:[
+                  BoxShadow(blurRadius: 6, color: Colors.black12, offset: Offset(0, 8)),
+                ],
+                color: Colors.white
+              ),
+            )
+          ],
+        )
 			],
 		);
 	}
