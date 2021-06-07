@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tasko_rem/Data.dart';
+import 'package:tasko_rem/models/new_task.dart';
 
 const IconBlank = Icon(Icons.check_box_outline_blank);
 const IconChecked = Icon(Icons.check_box);
@@ -77,11 +79,12 @@ class TodoPreview extends StatefulWidget {
 }
 
 class _TodoPreviewState extends State<TodoPreview> {
+  final NewTask newTask;
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Text(
-        todoPreviewText,
+        newTask.content,
       )
     );
   }
