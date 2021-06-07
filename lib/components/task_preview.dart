@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 const IconBlank = Icon(Icons.check_box_outline_blank);
 const IconChecked = Icon(Icons.check_box);
 
+String todoPreviewText = '';
+String todoUserInput = '';
+
 class TaskPreview extends StatelessWidget {
   @override
 	Widget build(BuildContext context) {
@@ -29,10 +32,7 @@ class TaskPreview extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CheckboxWidget(),
-                Text(
-                  'This is a To-Do list...',
-                  textAlign: TextAlign.center,
-                )
+                TodoPreview()
               ],
             ),
           ],
@@ -58,13 +58,31 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
         onChanged: (bool? newValue) {
           setState(() {
             checkBoxValue = newValue!;
-            
+
           });
         },
         activeColor: Colors.black,
         
       )
       
+    );
+  }
+}
+
+class TodoPreview extends StatefulWidget {
+  const TodoPreview({ Key? key }) : super(key: key);
+
+  @override
+  _TodoPreviewState createState() => _TodoPreviewState();
+}
+
+class _TodoPreviewState extends State<TodoPreview> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Text(
+        todoPreviewText,
+      )
     );
   }
 }
