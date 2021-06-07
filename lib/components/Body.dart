@@ -35,9 +35,14 @@ class Body extends StatelessWidget {
             ],
           ),
         )
-        
 			],
 		);
 	}
+
+  void appendNewTask() {
+
+    
+  }
+
 }
 
