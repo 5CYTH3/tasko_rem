@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 const IconBlank = Icon(Icons.check_box_outline_blank);
 const IconChecked = Icon(Icons.check_box);
 
-String todoPreviewText = '';
+String todoPreviewText = 't bo';
 String todoUserInput = '';
 
 class TaskPreview extends StatelessWidget {
