@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasko_rem/Data.dart';
-import 'package:tasko_rem/models/new_task.dart';
+import 'Body.dart';
 
 const IconBlank = Icon(Icons.check_box_outline_blank);
 const IconChecked = Icon(Icons.check_box);
@@ -34,7 +33,9 @@ class TaskPreview extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CheckboxWidget(),
-                TodoPreview()
+                Text(
+                  ''
+                )
               ],
             ),
           ],
@@ -67,25 +68,6 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
         
       )
       
-    );
-  }
-}
-
-class TodoPreview extends StatefulWidget {
-  const TodoPreview({ Key? key }) : super(key: key);
-
-  @override
-  _TodoPreviewState createState() => _TodoPreviewState();
-}
-
-class _TodoPreviewState extends State<TodoPreview> {
-  final NewTask newTask;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Text(
-        newTask.content,
-      )
     );
   }
 }

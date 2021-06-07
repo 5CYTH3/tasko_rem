@@ -56,8 +56,6 @@ class Body extends StatelessWidget {
           padding: const EdgeInsets.all(30),
           child: Column(
             children: [
-              TaskPreview(),
-              TaskPreview()
 
             ],
           ),
@@ -68,8 +66,8 @@ class Body extends StatelessWidget {
 
   TextEditingController customController = TextEditingController();
 
-  createAlertDialog(BuildContext context) {
-    return showDialog(context: context, builder: (context) {
+  Future<String> createAlertDialog(BuildContext context) async {
+    return await showDialog(context: context, builder: (context) {
       return AlertDialog(
         title: Text('Please enter your task : '),
         content: TextField(
@@ -90,12 +88,3 @@ class Body extends StatelessWidget {
     });
   }
 }
-
-/*
-child: IconButton(
-  icon: Icon(Icons.add),
-  iconSize: 25,
-  color: Colors.white,
-  onPressed: null
-),
-*/
