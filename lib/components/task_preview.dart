@@ -13,7 +13,7 @@ class TaskPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 15.0),
+        margin: EdgeInsets.symmetric(vertical: 10.0),
         height: 60,
         decoration: BoxDecoration(
             color: Colors.white,
