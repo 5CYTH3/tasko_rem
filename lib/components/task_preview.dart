@@ -8,24 +8,25 @@ String todoPreviewText = 't bo';
 String todoUserInput = '';
 
 class TaskPreview extends StatelessWidget {
+  String? label;
+
+  TaskPreview({this.label});
+
   @override
-	Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Center(
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 15.0),
         height: 60,
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.16), 
-              offset: Offset(0, 3),
-              blurRadius: 20
-
-            )
-          ]
-        ),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(18),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.16),
+                  offset: Offset(0, 3),
+                  blurRadius: 20)
+            ]),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -33,16 +34,13 @@ class TaskPreview extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CheckboxWidget(),
-                Text(
-                  ''
-                )
+                Text('$label'),
               ],
             ),
           ],
         ),
       ),
     );
-  
   }
 }
 
@@ -56,18 +54,14 @@ class _CheckboxWidgetState extends State<CheckboxWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Checkbox(
-        value: checkBoxValue,
-        onChanged: (bool? newValue) {
-          setState(() {
-            checkBoxValue = newValue!;
-
-          });
-        },
-        activeColor: Colors.black,
-        
-      )
-      
-    );
+        child: Checkbox(
+      value: checkBoxValue,
+      onChanged: (bool? newValue) {
+        setState(() {
+          checkBoxValue = newValue!;
+        });
+      },
+      activeColor: Colors.black,
+    ));
   }
 }
