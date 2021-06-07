@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasko_rem/components/task_preview.dart';
 
 class Body extends StatelessWidget {
 	@override
@@ -23,24 +24,18 @@ class Body extends StatelessWidget {
 						]
 					),
 				),
-        
-        /*
-        Column(
-          children: [
-            Container(
-              height: 200.0,
-              width: 200.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                boxShadow:[
-                  BoxShadow(blurRadius: 6, color: Colors.black12, offset: Offset(0, 8)),
-                ],
-                color: Colors.white
-              ),
-            )
-          ],
+
+        Padding(
+          padding: const EdgeInsets.all(30),
+          child: Column(
+            children: [
+              TaskPreview(),
+              TaskPreview()
+
+            ],
+          ),
         )
-        */
+        
 			],
 		);
 	}
