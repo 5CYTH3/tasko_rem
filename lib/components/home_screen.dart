@@ -9,8 +9,29 @@ class HomeScreen extends StatelessWidget {
 		return Scaffold (
 			appBar: buildAppBar(),
 			body: Body(), 
+      bottomNavigationBar: bottomAppBar(),
 		);
 	}
+
+  BottomNavigationBar bottomAppBar() {
+    return BottomNavigationBar(
+      selectedItemColor: Colors.black,
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.sticky_note_2_outlined), 
+          backgroundColor: Colors.black,
+          activeIcon: Icon(Icons.sticky_note_2),
+          label: 'Main Tasks'
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.sticky_note_2_outlined), 
+          backgroundColor: Colors.black,
+          label: 'Lesson Tasks'
+
+        ),
+      ],
+    );
+  }
   
 	AppBar buildAppBar() {
 		return AppBar(
