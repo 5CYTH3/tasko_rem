@@ -1,18 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:tasko_rem/components/LessonBody.dart';
 import 'Body.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  int _selectedIndex = 0;
+  List<Widget> _widgetList = <Widget>[
+    Body(),
+    LessonBody()
+  ];
+
+  void _onItemTap(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold (
 			appBar: buildAppBar(),
-			body: Body(), 
-      bottomNavigationBar: BuildBottomBar(),
+			body: _widgetList.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.black,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTap,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sticky_note_2_outlined), 
+            backgroundColor: Colors.black,
+            activeIcon: Icon(Icons.sticky_note_2),
+            label: 'Main Tasks'
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.sticky_note_2_outlined), 
+            backgroundColor: Colors.black,
+            activeIcon: Icon(Icons.sticky_note_2),
+            label: 'Lesson Tasks'
+
+          ),
+        ],
+      ),
 		);
 	}
-  
+
 	AppBar buildAppBar() {
 		return AppBar(
 			elevation: 0,
@@ -37,50 +75,4 @@ class HomeScreen extends StatelessWidget {
       ],
 		);
 	}
-
-}
-
-class BuildBottomBar extends StatefulWidget {
-  const BuildBottomBar({ Key? key }) : super(key: key);
-
-  @override
-  _BuildBottomBarState createState() => _BuildBottomBarState();
-}
-
-class _BuildBottomBarState extends State<BuildBottomBar> {
-  int _selectedIndex = 0;
-  List<Widget> _widgetList = <Widget>[
-    Body(),
-    
-  ];
-
-  void _onItemTap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      selectedItemColor: Colors.black,
-      currentIndex: _selectedIndex,
-      onTap: _onItemTap,
-      items: [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.sticky_note_2_outlined), 
-          backgroundColor: Colors.black,
-          activeIcon: Icon(Icons.sticky_note_2),
-          label: 'Main Tasks'
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.sticky_note_2_outlined), 
-          backgroundColor: Colors.black,
-          activeIcon: Icon(Icons.sticky_note_2),
-          label: 'Lesson Tasks'
-
-        ),
-      ],
-    );
-  }
 }
