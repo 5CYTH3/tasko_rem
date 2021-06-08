@@ -26,7 +26,8 @@ class _BodyState extends State<Body> {
                 color: Colors.black,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(60),
-                    bottomRight: Radius.circular(60)),
+                    bottomRight: Radius.circular(60)
+                ),
               ),
             ),
             Positioned(
@@ -56,12 +57,13 @@ class _BodyState extends State<Body> {
             ),
           ]),
         ),
-        Padding(
-          padding: const EdgeInsets.all(30),
-          child: Column(
+        
+        Expanded(
+          child: ListView(
+            physics: BouncingScrollPhysics(),
             children: [...todoList],
           ),
-        )
+        ),
       ],
     );
   }

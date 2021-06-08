@@ -49,6 +49,10 @@ class BuildBottomBar extends StatefulWidget {
 
 class _BuildBottomBarState extends State<BuildBottomBar> {
   int _selectedIndex = 0;
+  List<Widget> _widgetList = <Widget>[
+    Body(),
+    
+  ];
 
   void _onItemTap(int index) {
     setState(() {
