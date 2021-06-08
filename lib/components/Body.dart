@@ -70,30 +70,32 @@ class _BodyState extends State<Body> {
 
   Future createTask() {
     return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-              title: Text('Please enter your task : '),
-              content: TextField(controller: customController),
-              actions: <Widget>[
-                MaterialButton(
-                  onPressed: () {
-                    setState(() {
-                      todoList.add(
-                        TaskPreview(
-                          label: customController.text,
-                        ),
-                      );
-                    });
-                    customController.clear();
-                    Navigator.of(context).pop(customController.text.toString());
-                  },
-                  color: Colors.black,
-                  textColor: Colors.white,
-                  elevation: 5.0,
-                  child: Text('Create it !'),
-                )
-              ]);
-        });
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Please enter your task : '),
+          content: TextField(controller: customController),
+          actions: <Widget>[
+            MaterialButton(
+              onPressed: () {
+                setState(() {
+                  todoList.add(
+                    TaskPreview(
+                      label: customController.text,
+                    ),
+                  );
+                });
+                customController.clear();
+                Navigator.of(context).pop(customController.text.toString());
+              },
+              color: Colors.black,
+              textColor: Colors.white,
+              elevation: 5.0,
+              child: Text('Create it !'),
+            )
+          ]
+        );
+      }
+    );
   }
 }
