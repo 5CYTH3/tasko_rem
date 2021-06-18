@@ -1,3 +1,5 @@
 # tasko_rem
- This is the new version of my Task app "Tasko" which was done in Java. She is now in Flutter for the HotReload and the native Cross-Platform.  
- The Java app tasko is now in private...  
+ The Tasko App is now compatible on iOS, Android and others distribution, because it's made with Flutter :sparkles:
+ You can now add task, check them or uncheck. You can only type a text but later, I will add a color parameter.
+ 
+ 
