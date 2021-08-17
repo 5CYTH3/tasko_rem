@@ -7,7 +7,9 @@ const IconChecked = Icon(Icons.check_box);
 class TaskPreview extends StatelessWidget {
   String? label;
 
-  TaskPreview({this.label});
+  TaskPreview(
+    {this.label}
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -16,14 +18,16 @@ class TaskPreview extends StatelessWidget {
         margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20),
         height: 60,
         decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(18),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.black.withOpacity(0.16),
-                  offset: Offset(0, 3),
-                  blurRadius: 20)
-            ]),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.16),
+              offset: Offset(0, 3),
+              blurRadius: 20
+            )
+          ]
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
