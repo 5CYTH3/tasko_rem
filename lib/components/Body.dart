@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'task_preview.dart';
+import '/models/Task.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   final TextEditingController customController = TextEditingController();
 
-  List<Widget> todoList = [];
+  List<Task> todoList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,7 @@ class _BodyState extends State<Body> {
                 color: Colors.black,
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(60),
-                    bottomRight: Radius.circular(60)
-                ),
+                    bottomRight: Radius.circular(60)),
               ),
             ),
             Positioned(
@@ -36,6 +36,7 @@ class _BodyState extends State<Body> {
               right: 0,
               child: Container(
                 height: 70,
+                width: 70,
                 margin: EdgeInsets.symmetric(horizontal: 170),
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -57,12 +58,10 @@ class _BodyState extends State<Body> {
             ),
           ]),
         ),
-        
         Expanded(
           child: ListView(
-            physics: BouncingScrollPhysics(),
-            children: [...todoList],
-          ),
+              physics: BouncingScrollPhysics(),
+              children: [...showTaskPreview(todoList)]),
         ),
       ],
     );
@@ -70,32 +69,37 @@ class _BodyState extends State<Body> {
 
   Future createTask() {
     return showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Please enter your task : '),
-          content: TextField(controller: customController),
-          actions: <Widget>[
-            MaterialButton(
-              onPressed: () {
-                setState(() {
-                  todoList.add(
-                    TaskPreview(
-                      label: customController.text,
-                    ),
-                  );
-                });
-                customController.clear();
-                Navigator.of(context).pop(customController.text.toString());
-              },
-              color: Colors.black,
-              textColor: Colors.white,
-              elevation: 5.0,
-              child: Text('Create it !'),
-            )
-          ]
-        );
-      }
-    );
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+              title: Text('Please enter your task : '),
+              content: TextField(controller: customController),
+              actions: <Widget>[
+                MaterialButton(
+                  onPressed: () {
+                    setState(() {
+                      todoList.add(Task(customController.text, false));
+                    });
+                    customController.clear();
+                    Navigator.of(context).pop(customController.text.toString());
+                  },
+                  color: Colors.black,
+                  textColor: Colors.white,
+                  elevation: 5.0,
+                  child: Text('Create it !'),
+                )
+              ]);
+        });
+  }
+
+  List<Widget> showTaskPreview(List<Task> todoList) {
+    List<Widget> widgetList = [];
+    todoList.map((element) {
+      setState(() {
+        widgetList.add(TaskPreview(task: element));
+        print(widgetList);
+      });
+    });
+    return widgetList;
   }
 }

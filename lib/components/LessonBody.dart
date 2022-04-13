@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'task_preview.dart';
 
 class LessonBody extends StatefulWidget {
-  const LessonBody({ Key? key }) : super(key: key);
+  const LessonBody({Key? key}) : super(key: key);
 
   @override
   _LessonBodyState createState() => _LessonBodyState();
@@ -11,7 +11,6 @@ class LessonBody extends StatefulWidget {
 class _LessonBodyState extends State<LessonBody> {
   final TextEditingController customController = TextEditingController();
   List<Widget> todoList = [];
-
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +24,7 @@ class _LessonBodyState extends State<LessonBody> {
             color: Colors.black,
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(60),
-                bottomRight: Radius.circular(60)
-            ),
+                bottomRight: Radius.circular(60)),
           ),
         ),
         Positioned(
@@ -44,7 +42,8 @@ class _LessonBodyState extends State<LessonBody> {
                       offset: Offset(0, 2),
                       blurRadius: 20,
                       color: Colors.black.withOpacity(0.2))
-                ]),
+                ]
+            ),
             child: Center(
               child: IconButton(
                   icon: Icon(Icons.add),
@@ -68,13 +67,7 @@ class _LessonBodyState extends State<LessonBody> {
               actions: <Widget>[
                 MaterialButton(
                   onPressed: () {
-                    setState(() {
-                      todoList.add(
-                        TaskPreview(
-                          label: customController.text,
-                        ),
-                      );
-                    });
+                    setState(() {});
                     customController.clear();
                     Navigator.of(context).pop(customController.text.toString());
                   },
@@ -86,5 +79,4 @@ class _LessonBodyState extends State<LessonBody> {
               ]);
         });
   }
-
 }
